@@ -59,7 +59,6 @@ class FileStorage:
     def delete(self, obj=None):
         """Delete obj from __objects"""
         if obj is not None:
-            key = obj.__class__.__name__ + '.' + obj.id
-            if key in self.__objects:
-                del self.__objects[key]
-                self.save()
+            key = str(obj.__class__.__name__) + '.' + str(obj.id)
+            FileStorage.__objects.pop(key, None)
+            self.save()
