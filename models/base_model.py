@@ -22,12 +22,17 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
         else:
-            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
-            kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
-            del kwargs['__class__']
-            self.__dict__.update(kwargs)
+            if kwargs.get("created_at"):
+                kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
+                                                    '%Y-%m-%dT%H:%M:%S.%f')
+            if kwargs.get("updated_at"):
+                self.updated_at = datetime.strptime(kwargs['updated_at'],
+                                                    '%Y-%m-%dT%H:%M:%S.%f')
+            for k,v in kwargs.items():
+                if k != "__class__":
+                    setattr(self, k, v)
+            if not self.id:
+                self.id = str(uuid.uuid4())
 
     def __str__(self):
         """Returns a string representation of the instance"""
@@ -49,4 +54,11 @@ class BaseModel:
                           (str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
+        if hasattr(dictionary, '_sa_instance_state'):
+            del dictionary['_sa_instance_state']
         return dictionary
+
+    def delete(self):
+        """delete the current instance from the storage"""
+        from models import storage
+        storage.delete(self)
