@@ -134,7 +134,8 @@ class HBNBCommand(cmd.Cmd):
                     continue
                 val = val.replace('_', ' ').replace('"', '\\"')
             if not isinstance(val, str)\
-                and not isinstance(val, float) and not isinstance(val, int):
+                and not isinstance(val, float)\
+                    and not isinstance(val, int):
                 continue
             if hasattr(new_instance, attr):
                 setattr(new_instance, attr, val)
