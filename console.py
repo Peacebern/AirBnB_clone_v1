@@ -128,13 +128,13 @@ class HBNBCommand(cmd.Cmd):
         for params in commands[1:]:
             params = params.split('=')
             attr = params[0]
-            val = params[1]
+            val = eval(params[1])
             if isinstance(val, str):
                 if ' ' in val:
                     continue
-                val.replace('_', ' ').replace('"', '\\"')
+                val = val.replace('_', ' ').replace('"', '\\"')
             if not isinstance(val, str)\
-                or not isinstance(val, float) or not isinstance(val, int):
+                and not isinstance(val, float) and not isinstance(val, int):
                 continue
             if hasattr(new_instance, attr):
                 setattr(new_instance, attr, val)
