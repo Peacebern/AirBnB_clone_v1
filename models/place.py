@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
-from models.base_model import BaseModel
+
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 
 
 class Place(BaseModel):
@@ -16,3 +19,5 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
+    # reviews = relationship("Review", backref="place",
+    #                        cascade="all, delete, delete-orphan")
