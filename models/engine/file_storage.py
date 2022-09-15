@@ -11,17 +11,18 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if not cls:
-            return self.__objects
+            return FileStorage.__objects
         else:
             newdict = {}
             for key, value in self.__objects.items():
-                if cls == key.split(".")[0]:
+                if type(value) == cls:
                     newdict[key] = value
             return newdict
 
+
     def new(self, obj):
         """Adds new object to storage dictionary"""
-        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+        self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
         """Saves storage dictionary to file"""
