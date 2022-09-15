@@ -123,7 +123,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        new_instance = HBNBCommand.classes[commands[0]]()
+        # new_instance = HBNBCommand.classes[commands[0]]()
+        new_instance = eval(commands[0])()
 
         for params in commands[1:]:
             params = params.split('=')
