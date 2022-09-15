@@ -16,8 +16,6 @@ class State(BaseModel, Base):
         cities = relationship("City", backref="state",
                               cascade="all, delete, delete-orphan")
     else:
-        name = ""
-
         @property
         def cities(self):
             """returns list of City instances related to state"""
