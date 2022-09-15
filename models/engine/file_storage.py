@@ -3,6 +3,7 @@
 import json
 import models
 
+
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
@@ -18,7 +19,6 @@ class FileStorage:
                 if type(value) == cls:
                     newdict[key] = value
             return newdict
-
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
