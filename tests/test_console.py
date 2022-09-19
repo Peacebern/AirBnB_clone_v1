@@ -12,7 +12,7 @@ from models.engine.file_storage import FileStorage
 
 
 class TestHBNBCommand(unittest.TestCase):
-    """Unittests for testing the HBNB command interpreter."""
+    """Unittests for testing the HBNB command interpreter"""
 
     @classmethod
     def setUpClass(cls):

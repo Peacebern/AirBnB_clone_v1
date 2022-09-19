@@ -21,7 +21,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 class TestPlace(unittest.TestCase):
-    """Unittests for testing the Place class."""
+    """Unittests for testing the Place class"""
 
     @classmethod
     def setUpClass(cls):

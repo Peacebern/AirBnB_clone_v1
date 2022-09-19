@@ -105,7 +105,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(FileStorage, "delete"))
 
     def test_init(self):
-        """Test initialization."""
+        """Test initialization"""
         self.assertTrue(isinstance(self.storage, FileStorage))
 
     def test_all(self):

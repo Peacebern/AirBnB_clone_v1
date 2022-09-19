@@ -17,7 +17,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 class TestCity(unittest.TestCase):
-    """Unittests for testing the City class."""
+    """Unittests for testing the City class"""
 
     @classmethod
     def setUpClass(cls):

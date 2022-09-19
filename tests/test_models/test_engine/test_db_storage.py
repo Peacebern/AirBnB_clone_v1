@@ -24,7 +24,7 @@ class TestDBStorage(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        """DBStorage testing setup.
+        """DBStorage testing setup
 
         Instantiate new DBStorage.
         Fill DBStorage test session with instances of all classes.

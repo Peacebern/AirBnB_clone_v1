@@ -20,7 +20,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 class TestReview(unittest.TestCase):
-    """Unittests for testing the Review class."""
+    """Unittests for testing the Review class"""
 
     @classmethod
     def setUpClass(cls):

@@ -35,7 +35,7 @@ class DBStorage:
 
     def all(self, cls=None):
         '''
-            Query current database session
+            Query current database sessions
         '''
         db_dict = {}
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Package initializer'''
+'''The Package initializer'''
 from os import getenv
 
 if getenv("HBNB_TYPE_STORAGE", "fs") == "db":
